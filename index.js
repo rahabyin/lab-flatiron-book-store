@@ -1,4 +1,4 @@
-const bookStore = {
+let bookStore = {
     name: 'Flatbooks Technical Books',
     books: [
         {
@@ -44,4 +44,38 @@ const bookStore = {
 }
 
 // Write your code here!
+// Changing the title to Flatbooks Technical Books
+let bookStoreTitle = document.querySelector("#header");
+bookStoreTitle.textContent = bookStore.name;
+
+// Removing placeholder item
+const deleteThis = document.getElementById("delete-this");
+deleteThis.remove();
+
+// Getting the list
+const bookList = document.getElementById("book-list");
+
+// Loop and create elements
+bookStore.books.forEach((book) =>{
+const bookContainer = document.createElement("li");
+const bookTitle = document.createElement ("h3");
+const bookAuthor = document.createElement ("p")
+const bookImage = document.createElement ("img");
+
+// set content
+bookTitle.textContent = book.title;
+bookAuthor.textContent = book.author;
+bookImage.src =book.imageUrl;
+
+// Append elements to container
+bookContainer.appendChild(bookTitle);
+bookContainer.appendChild(bookAuthor);
+bookContainer.appendChild(bookImage);
+
+const bookList = document.querySelector("#book-list")
+
+// Append container to list
+bookList.appendChild(bookContainer);
+
+});
 
